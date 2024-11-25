@@ -14,10 +14,12 @@ lst = list()
 for line in fh:
     #split line from string into individual word list
     words = line.split()
+    #iterate through each word in words list
+    for word in words:
     #conditional to only add words to lst if words arent already in lst
-    if words not in lst:
-        #add words to lst
-        lst.extend(words)
-        #sort lst 
-        lst.sort()
+        if word not in lst:
+            #add word to lst
+            lst.append(word)
+            #sort lst 
+            lst.sort()
 print(lst)
