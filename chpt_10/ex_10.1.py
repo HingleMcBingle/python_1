@@ -19,10 +19,6 @@ except:
 
 #empty dictionary to iterate values into 
 emails = dict()
-#empty count variable to intrate value into
-lcount = None
-#empty word variable to iterate corresponding key into
-lword = None
 
 #loop through and seperate lines starting with From in file
 for line in fhand:
@@ -35,17 +31,12 @@ for line in fhand:
         line = line[1]
         #add email to empty dictionary emails variable
         emails[line] = emails.get(line,0) + 1
-            
+#empty list to iterate into            
 lst = list()
-#loop through dictionary key and value to determine most recurring email 
-for key,value in emails.items():
-    if lcount is None or value > lcount:
-        lcount = value
-        lword = key
-
+#iterate through emails dictionary to append key values as value keys in list and sort by values
 for key,value in emails.items():
     lst.append((value,key))
     lst.sort(reverse = True)
-
+#print the first key value in the sorted list 
 for val,key in lst[:1]:
     print(key,val)
